@@ -1,13 +1,13 @@
 'use client'
 
 import Header from "../components/Header"
-import BlogItem from "@/components/BlogItem"
+import HeroSection from "../components/HeroSection"
 
 export default function Home() {
   return (
     <>
     <Header />
-    <BlogItem />
+    <HeroSection />
     </>
   );
 }
