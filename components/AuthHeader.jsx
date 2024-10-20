@@ -1,17 +1,7 @@
 import Link from 'next/link'
-import { useRouter } from 'next/navigation'
 import React from 'react'
 
 const AuthHeader = () => {
-  const router = useRouter();
-
-  const handleLoginClick = () => {
-    router.push("/login");
-  };
-
-  const handleRegisterClick = () => {
-    router.push("/register");
-  };
 
   return (
     <div className='py-5 px-5 md:px-12 lg:px-28'>
@@ -24,18 +14,6 @@ const AuthHeader = () => {
         </ul>
 
         <div className='flex gap-4'>
-          <button 
-            className="flex items-center gap-2 font-medium py-1 px-3 sm:py-3 sm:px-6 border border-solid border-black shadow-[-7px_7px_0px_#000000] hover:bg-gray-600 hover:text-white transition-all"
-            onClick={handleLoginClick}
-          >
-            Login
-          </button>
-          <button 
-            className="flex items-center gap-2 font-medium py-1 px-3 sm:py-3 sm:px-6 border border-solid border-black shadow-[-7px_7px_0px_#000000] hover:bg-gray-600 hover:text-white transition-all"
-            onClick={handleRegisterClick}
-          >
-            Register
-          </button>
         </div>
       </div>
       <div className="text-center my-8">

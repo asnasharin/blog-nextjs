@@ -11,6 +11,7 @@ const Register = () => {
 
     useEffect(() => {
         form?.success && router.push("/")
+        // alert("login successfull")
     }, [form?.success,router])
   return (
     <form action={setForm} className='max-w-[500px] m-auto mt-10 p-8 rounded-lg border border-gray-300 shadow-lg hover:shadow-xl transition-shadow duration-300'>
