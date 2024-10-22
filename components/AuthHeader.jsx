@@ -5,14 +5,8 @@ const AuthHeader = () => {
 
   return (
     <div className='py-5 px-5 md:px-12 lg:px-28'>
-      <div className="flex justify-between items-center">
-        <img src='logo.png' width={150} alt="logo" className='w-[80px] sm:w-[100px]' />
-        <ul className='flex justify-center gap-8 font-medium text-[18px] cursor-pointer'>
-          <li><Link href="/">Home</Link></li>
-          <li><Link href="/about">About</Link></li>
-          <li><Link href="/contact">Contact</Link></li>
-        </ul>
-
+      <div className="flex justify-center items-center">
+        <img src='logo.png' width={150} alt="logo" className='w-[80px] sm:w-[100px] cursor-pointer' />
         <div className='flex gap-4'>
         </div>
       </div>

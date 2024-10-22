@@ -1,10 +1,15 @@
+'use client';
+
 import Link from 'next/link';
 import React from 'react';
-import { auth } from '@/lib/auth';
+import { signOut, useSession } from 'next-auth/react';
 
-const Header = async () => {
-    
-    const session = await auth();
+const Header = () => {
+    const { data: session } = useSession();
+
+    const handleLogout = () => {
+        signOut({ callbackUrl: '/login' });
+    };
 
     return (
         <div className='py-5 px-5 md:px-12 lg:px-28'>
@@ -22,9 +27,7 @@ const Header = async () => {
                     </li>
                     {session?.user?.email === 'admin@gmail.com' && (
                         <div>
-                            <Link href='/admin'>
-                            Admin
-                            </Link>
+                            <Link href='/admin'>Admin</Link>
                         </div>
                     )}
                 </ul>
@@ -32,26 +35,14 @@ const Header = async () => {
                     <Link href='/register'>Get started</Link>
                 </button>
                 <button className='flex items-center gap-2 font-medium py-1 px-3 sm:py-3 sm:px-6 border border-solid border-black shadow-[-7px_7px_0px_#000000]'>
-                    <Link href='/login'>login</Link>
+                    <Link href='/login'>Login</Link>
                 </button>
-            </div>
-            <div className='text-center my-8'>
-                <h1 className='text-3xl sm:text-5xl font-medium'>Latest Blogs</h1>
-                <p className='mt-10 max-w-[740px] m-auto text-xs sm:text-base'>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur aliquid
-                    quisquam ipsam explicabo perferendis illum enim, voluptatibus aperiam recusandae
-                    cum consectetur quibusdam.
-                </p>
-                <form
-                    action=''
-                    className='flex justify-between max-w-[500px] scale-75 sm:scale-100 mx-auto mt-10 border border-black shadow-[-7px_7px_0px_#000000]'>
-                    <input type='email' placeholder='Enter your email' className='pl-4 outline-none' />
-                    <button
-                        type='submit'
-                        className='border-l border-black py-4 px-4 sm:px-8 active:bg-gray-600 active:text-white'>
-                        Subscribe
-                    </button>
-                </form>
+                <button 
+                    className='flex items-center gap-2 font-medium py-1 px-3 sm:py-3 sm:px-6 border border-solid border-black shadow-[-7px_7px_0px_#000000]' 
+                    onClick={handleLogout}
+                >
+                    Logout
+                </button>
             </div>
         </div>
     );
