@@ -1,3 +1,5 @@
+'use client'
+
 import React from 'react';
 import AdminPostForm from '../../components/AdminPostForm';
 import AdminUsers from '../../components/AdminUsers';
