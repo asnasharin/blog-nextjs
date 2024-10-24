@@ -1,14 +1,25 @@
 import React from 'react';
+import { getAllUsers } from '@/lib/data';
+import { deleteUser } from '@/lib/actions';
 
-function AdminUsers() {
+async function AdminUsers() {
+  const users = await getAllUsers();
+
   return (
     <div className="bg-white text-black p-6 rounded-lg shadow-md">
       <h2 className="text-2xl font-bold mb-4">Manage Users</h2>
-      <ul className="list-none space-y-2">
-        <li className="p-2 border-b border-gray-300">User 1 - user1@example.com</li>
-        <li className="p-2 border-b border-gray-300">User 2 - user2@example.com</li>
-        <li className="p-2 border-b border-gray-300">User 3 - user3@example.com</li>
-      </ul>
+      {users.map((user) => (
+        <form action={deleteUser} method="POST" key={user.id} className="flex justify-between items-center border-b border-gray-300 p-2">
+          <input type="hidden" name="id" value={user.id} />
+          <span>{user.name}</span>
+          <button
+            type="submit"
+            className="ml-4 py-1 px-3 text-sm text-white bg-red-600 rounded hover:bg-red-500 transition-colors duration-200"
+          >
+            Delete
+          </button>
+        </form>
+      ))}
     </div>
   );
 }

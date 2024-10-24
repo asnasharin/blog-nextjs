@@ -5,6 +5,7 @@ import AdminPostForm from '../../components/AdminPostForm';
 import AdminUsers from '../../components/AdminUsers';
 import AdminPosts from '../../components/AdminPosts';
 import Header from '@/components/Header';
+import Link from 'next/link';
 
 const AdminPage = () => {
   return (
@@ -18,7 +19,8 @@ const AdminPage = () => {
             <AdminUsers />
           </div>
           <div>
-            <AdminPosts />
+            {/* <AdminPosts /> */}
+            <button><Link href="/posts">admin posts</Link></button>
           </div>
         </div>
 

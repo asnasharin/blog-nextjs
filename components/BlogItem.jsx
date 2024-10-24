@@ -10,7 +10,7 @@ async function BlogItem() {
       {posts.map((post) => (
         <div key={post.id} className='max-w-[330px] sm:max-w-[300px] bg-white border border-black hover:shadow-[-7px_7px_0px_#000000]'>
           <Image 
-            src={post.image || '/image.png'} // Assuming you have an image URL in your post data
+            src={post.image || '/image.png'} 
             alt={post.title} 
             width={400} 
             height={400} 
